@@ -4,7 +4,19 @@ class Model {
 
 	private $conn;
 	private function connect() {
-		$this->conn = new mysqli('localhost', 'root', '', 'db_455_project');
+		/************************************************************
+				Database Configuration
+  			*************************************************************/
+  $dbUser = "spokharel";
+  $dbPassword = "w1147112";
+  $database = "spokharel";
+  $host     = "mysqldev.aero.und.edu";
+/*
+  $dbUser = "root";
+  $dbPassword= "";
+  $database = "db_455_project";
+  $host     = "localhost";*/
+		$this->conn = new mysqli($host, $dbUser, $dbPassword,$database);
 		if ($this->conn->connect_errno != 0) {
 			die('database connection error');
 		}
