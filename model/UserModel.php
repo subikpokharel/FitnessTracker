@@ -1,0 +1,55 @@
+<?php
+
+
+	class UserModel{
+
+		public $id, $username, $password, $email, $Fname, $Lname, $last_login, $status, $salt, $profile_picture;
+
+		function checkLogin(){
+			$sql = "select * from tbl_admin where status=1 and username='$this->username'";
+
+			//connecting database
+			/************************************************************
+				Database Configuration
+  			*************************************************************/
+  $dbUser = "spokharel";
+  $dbPassword = "w1147112";
+  $database = "spokharel";
+  $host     = "mysqldev.aero.und.edu";
+/*
+  $dbUser = "root";
+  $dbPassword= "";
+  $database = "db_455_project";
+  $host     = "localhost";*/
+
+			$conn = new mysqli($host, $dbUser, $dbPassword,$database);
+			//$conn = new mysqli('localhost','root','','db_455_project');
+			if($conn->connect_errno != 0){
+				die('Database Connection Error');
+			}
+			$r = $conn->query($sql);
+			//echo $r;
+			if ($r->num_rows == 1) {
+				return $r->fetch_object();
+			}else{
+				return false;
+			}
+		}
+
+
+		function updateLastLogin(){
+
+			$d = date('Y-m-d H:i:s');
+			$sql = "update tbl_admin set last_login='$d' where username='$this->username'";
+
+			//connecting database
+			$conn = new mysqli('localhost','root','','db_455_project');
+			if($conn->connect_errno != 0){
+				die('Database Connection Error');
+			}
+			$conn->query($sql);
+		}
+
+
+	}
+?>
