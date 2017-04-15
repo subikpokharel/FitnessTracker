@@ -40,10 +40,23 @@
 		function updateLastLogin(){
 
 			$d = date('Y-m-d H:i:s');
+			//connecting database
+			/************************************************************
+				Database Configuration
+  			*************************************************************/
+  $dbUser = "spokharel";
+  $dbPassword = "w1147112";
+  $database = "spokharel";
+  $host     = "mysqldev.aero.und.edu";
+/*
+  $dbUser = "root";
+  $dbPassword= "";
+  $database = "db_455_project";
+  $host     = "localhost";*/
 			$sql = "update tbl_admin set last_login='$d' where username='$this->username'";
 
 			//connecting database
-			$conn = new mysqli('localhost','root','','db_455_project');
+			$conn = new mysqli($host, $dbUser, $dbPassword,$database);
 			if($conn->connect_errno != 0){
 				die('Database Connection Error');
 			}
