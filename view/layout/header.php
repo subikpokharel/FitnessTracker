@@ -131,7 +131,15 @@
               </ul>
             </li>
 
-            <li><a href="<?php echo base_url()?>food/index"><i class="fa fa-book"></i> <span>Food Management</span></a></li>
+            <li class="active treeview">
+              <a href="<?php echo base_url()?>public/#">
+                <i class="fa fa-dashboard"></i> <span>Food Management</span> <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li><a href="<?php echo base_url()?>food/index"><i class="fa fa-book"></i> <span>Food Reference</span></a></li>
+                <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-book"></i> <span>Food Measurement Reference</span></a></li>
+              </ul>
+            </li>
             <li><a href="<?php echo base_url()?>bmi/index"><i class="fa fa-book"></i> <span>BMI Management</span></a></li>
             <li><a href="<?php echo base_url()?>requiredcalories/index"><i class="fa fa-book"></i> <span>Required Calories Management</span></a></li>
           </ul>

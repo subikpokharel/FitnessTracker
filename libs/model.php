@@ -124,6 +124,22 @@ class Model {
 		}
 
 	}
+
+	function select_query($sql) {
+		$this->connect();
+		//select fields list ..,,,, from table name
+		$res  = $this->conn->query($sql);
+		$data = array();
+		if ($res->num_rows > 0) {
+
+			while ($a = $res->fetch_object()) {
+				array_push($data, $a);
+
+			}
+
+		}
+		return $data;
+	}
 }
 
 ?>

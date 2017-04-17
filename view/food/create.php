@@ -3,7 +3,7 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Exercise Management
+            Food Management
             <small>Food Reference Form</small>
           </h1>
           <ol class="breadcrumb">
@@ -33,30 +33,30 @@
                       <input type="text" class="form-control" id="exerciseName" placeholder="Enter Name" name="name" required>
                     </div>
                     <div class="form-group">
+                      <label for="measurementUnit">Measurement Unit for Food</label>
+                      <select name="measurement_unit" class="form-control">
+                      <option>Select maesurement unit</option>
+                      <?php foreach ($this->mUnit as $mu) { ?>
+                            <option value="<?php echo $mu->id; ?>"> <?php echo $mu->measurement_unit ?> </option>
+                      <?php } ?>
+                      </select>
+                    </div>
+                    <div class="form-group">
                       <label for="caloriesValue">Calories</label>
-                      <input type="text" class="form-control" id="caloriesValue" placeholder="Enter Food Calories" name="calories" required>
+                      <input type="number" class="form-control" id="caloriesValue" placeholder="Enter Food Calories" min="0" name="calories" required>
                     </div>
                     <div class="form-group">
                       <label for="fatValue">Fat</label>
-                      <input type="text" class="form-control" id="fatValue" placeholder="Enter Food Fat" name="fat" required>
+                      <input type="number" class="form-control" id="fatValue" placeholder="Enter Food Fat" min="0" name="fat" required>
                     </div>
                     <div class="form-group">
                       <label for="carbsValue">Carbohydrates</label>
-                      <input type="text" class="form-control" id="carbsValue" placeholder="Enter Food Carbohydrates" name="carbs" required>
+                      <input type="number" class="form-control" id="carbsValue" placeholder="Enter Food Carbohydrates" min="0" name="carbs" required>
                     </div>
                     <div class="form-group">
                       <label for="proteinValue">Protein</label>
-                      <input type="text" class="form-control" id="proteinValue" placeholder="Enter Food Protein" name="protein" required>
+                      <input type="number" class="form-control" id="proteinValue" placeholder="Enter Food Protein" min="0" name="protein" required>
                     </div>
-                    <div class="form-group">
-                      <label for="sugarValue">Sugar</label>
-                      <input type="text" class="form-control" id="sugarValue" placeholder="Enter Food Sugar" name="sugar"  title="If there is no Sugar enter 0" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="sodiumValue">Sodium</label>
-                      <input type="text" class="form-control" id="sodiumValue" placeholder="Enter Food Sodium" name="sodium" title="If there is no Sodium enter 0" required>
-                    </div>
-
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">

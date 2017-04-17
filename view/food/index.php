@@ -30,13 +30,12 @@
                     <thead>
                       <tr>
                         <th>SN</th>
-                        <th>Name</th>
+                        <th>Food Name</th>
+                        <th>Measurement Unit</th>
                         <th>Calories</th>
                         <th>Fat</th>
                         <th>Carbs</th>
                         <th>Protein</th>
-                        <th>Sugar</th>
-                        <th>Sodium</th>
                         <th>Action</th>
                       </tr>
                     </thead>
@@ -46,12 +45,11 @@
                        <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $fl->name; ?></td>
+                        <td><?php echo $fl->measurement_unit; ?></td>
                         <td><?php echo $fl->calories; ?></td>
                         <td><?php echo $fl->fat; ?></td>
                         <td><?php echo $fl->carbs; ?></td>
                         <td><?php echo $fl->protein; ?></td>
-                        <td><?php echo $fl->sugar; ?></td>
-                        <td><?php echo $fl->sodium; ?></td>
                         <td><a href="<?php echo base_url() ?>food/edit/<?php echo $fl->id ?>" class="btn btn-success" > Edit </a>   
                         <a href="<?php echo base_url() ?>food/delete/<?php echo $fl->id?>" class="btn btn-danger" onclick="return confirm('are you sure to delete?')">Delete</a></td>
                     <?php $i++; } ?>
@@ -59,13 +57,12 @@
                     <tfoot>
                       <tr>
                         <th>SN</th>
-                        <th>Name</th>
+                        <th>Food Name</th>
+                        <th>Measurement Unit</th>
                         <th>Calories</th>
                         <th>Fat</th>
                         <th>Carbs</th>
                         <th>Protein</th>
-                        <th>Sugar</th>
-                        <th>Sodium</th>
                         <th>Action</th>
                       </tr>
                     </tfoot>

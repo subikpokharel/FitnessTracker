@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                       <label for="metValue">Metabolic Equivalent of Task value</label>
-                      <input type="text" class="form-control" id="metValue" placeholder="Enter MET value" name="met" value="<?php echo $this->cardiodata->MET ?>" required>
+                      <input type="number" class="form-control" id="metValue" placeholder="Enter MET value" name="met" min="0" value="<?php echo $this->cardiodata->MET ?>" required>
                     </div>
                   </div><!-- /.box-body -->
 

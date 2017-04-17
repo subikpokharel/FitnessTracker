@@ -34,7 +34,7 @@
                     </div>
                     <div class="form-group">
                       <label for="metValue">Metabolic Equivalent of Task value</label>
-                      <input type="text" class="form-control" id="metValue" placeholder="Enter MET value" name="met" required>
+                      <input type="number" class="form-control" id="metValue" placeholder="Enter MET value" min="0" name="met" required>
                     </div>
                   </div><!-- /.box-body -->
 
