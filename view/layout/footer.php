@@ -193,6 +193,7 @@
     <script src="<?php echo base_url()?>public/dist/js/demo.js"></script>
 
 
+
     <script src="<?php echo base_url()?>public/validation/dist/jquery.validate.js"></script>
   </body>
 </html>

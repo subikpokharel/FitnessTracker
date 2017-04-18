@@ -1,6 +1,8 @@
 <?php
 
 	class UserController extends Controller{
+
+
 		function login(){
 			//print_r($_POST);
 			if (isset($_POST['btnLogin'])) {
@@ -23,6 +25,7 @@
 					//call database or call model function
 					//make model object
 					$user = $this->loadModel('User');
+				//$this->user = $this->loadModel('User');
 					//require_once "model/UserModel.php";
 					//$user = new UserModel();
 					$user->username = $username;
@@ -43,6 +46,10 @@
 							$_SESSION['Fname'] = $u->Fname;
 							$_SESSION['Lname'] = $u->Lname;
 							$user->updateLastLogin();
+							if (isset($_POST['chkRemember'])) {
+								setcookie('remember_key',true,(time()+3*24*60*60));
+								setcookie('username',$u->username,(time()+3*24*60*60));
+							}
 							$this->redirect('dashboard/index');
 							//header('location:../dashboard/index');
 
@@ -70,8 +77,42 @@
 		function logout(){
 			session_start();
 			session_destroy();
+			setcookie('username',''.(time()-1));
+			setcookie('remember_key',false.(time()-1));
 			$this->redirect('user/login');
 		}
+
+		function profile(){
+			$user = $this->loadModel('User');
+			@session_start();
+			$user->username = $_SESSION['username'];
+			$u = $user -> checkLogin();
+			print_r($u);
+			$this->view->userdata = $u;
+
+			if (isset($_POST['btnUpdate'])) {
+				print_r($_POST);
+				$user->id = $u->id;
+				$user->email = $_POST['email'];
+				$user->Fname = $_POST['Fname'];
+				$user->Lname = $_POST['Lname'];
+				//$user->profile_picture = $_POST['profile_picture'];
+
+				if (isset($_FILES['profile_picture']['name']) && !empty($_FILES['profile_picture']['name'])) {
+					$fn = uniqid().'_'.$_FILES['profile_picture']['name'];
+					move_uploaded_file($_FILES['profile_picture']['tmp_name'], 'public/images/admin/'.$fn);
+					$user->profile_picture = $fn;
+					//echo( $fn);
+				}
+				$st = $user -> updateProfile();
+				$this->redirect('dashboard/index');
+				
+			}
+
+			$this->view->loadView('user/profile',false,false);
+		}
+
+		
 
 	}
 ?>

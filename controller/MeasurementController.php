@@ -8,15 +8,19 @@
 			//to get the users full name or user data to use in dashboard
 			$user = $this->loadModel('User');
 			@session_start();
-			$user->username = $_SESSION['username'];
-			$ud = $user->checkLogin();
-			$this->view->userdata = $ud;
+			if (!isset($_SESSION['username'])) {
+				$this->redirect('user/login');
+			}else{
+				$user->username = $_SESSION['username'];
+				$ud = $user->checkLogin();
+				$this->view->userdata = $ud;
 
-			$this->requiredcalories = $this->loadModel('requiredcalories');
-			$this->bmi = $this->loadModel('BMI');
-			$this->food = $this->loadModel('Food');
-			$this->cardio = $this->loadModel('Cardio');
-			$this->measurement = $this->loadModel('Measurement');
+				$this->requiredcalories = $this->loadModel('requiredcalories');
+				$this->bmi = $this->loadModel('BMI');
+				$this->food = $this->loadModel('Food');
+				$this->cardio = $this->loadModel('Cardio');
+				$this->measurement = $this->loadModel('Measurement');
+			}
 		}
 
 

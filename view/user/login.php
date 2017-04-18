@@ -56,7 +56,7 @@
             <div class="col-xs-8"> 
               <div class="checkbox icheck">
                 <label>
-                  <input type="checkbox"> Remember Me
+                  <input type="checkbox" name="chkRemember" value="1" > Remember Me
                 </label>
               </div>
             </div><!-- /.col -->
@@ -66,7 +66,7 @@
           </div>
         </form>
 
-        <a href="#">I forgot my password</a><br>
+        <a href="<?php echo base_url()?>forgot/index">I forgot my password</a><br>
 
       </div><!-- /.login-box-body -->
     </div><!-- /.login-box -->

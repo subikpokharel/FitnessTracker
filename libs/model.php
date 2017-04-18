@@ -139,6 +139,7 @@ class Model {
 
 		}
 		return $data;
+		//echo $sql;
 	}
 }
 
