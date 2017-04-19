@@ -1,118 +1,130 @@
-<?php
+<?php 
+class UserController extends Controller{
 
-	class UserController extends Controller{
+	function __construct(){
+			parent::__construct();
+			@session_start();
+			$this->user = $this->loadModel('User');
+		}
 
+	function login(){
 
-		function login(){
+		if (isset($_POST)) {
 			//print_r($_POST);
-			if (isset($_POST['btnLogin'])) {
-				$err = array();
-				if (isset($_POST['username']) && !empty($_POST['username'])) {
-					$username = $_POST['username'];
-				}else{
-					$err['username'] = " Enter Username";
-				}
-				if (isset($_POST['password']) && !empty($_POST['password'])) {
-					$password = $_POST['password'];
-				}else{
-					$err['password'] = " Enter Password";
-				}
-				//generating salt key
+			$err = array();
+			if (isset($_POST['username']) && !empty($_POST['username'])) {
+				$username = $_POST['username'];
+			}else{
+				$err['username'] = " Enter Username";
+			}
+			if (isset($_POST['password']) && !empty($_POST['password'])) {
+				$password = $_POST['password'];
+			}else{
+				$err['password'] = " Enter Password";
+			}
+			if (count($err) == 0) {
 				/*echo $a = uniqid();
 				echo "<br>";
 				echo $pass = sha1($a.$password);*/
-				if (count($err) == 0) {
-					//call database or call model function
-					//make model object
-					$user = $this->loadModel('User');
-				//$this->user = $this->loadModel('User');
-					//require_once "model/UserModel.php";
-					//$user = new UserModel();
-					$user->username = $username;
-					$user->password = $password;
-					$u = $user -> checkLogin();
-					//print_r($u);
-					//$salt = $u->salt;
-					if ($u) {
-						$newp = sha1($u->salt.$user->password);
-						/*echo $newp;
-						echo "<br>";
-						echo $u->password;*/
-						if ($newp == $u->password) {
-							//storing the data in session
-							session_start();
-							$_SESSION['username'] = $u->username;
-							$_SESSION['email'] = $u->email;
-							$_SESSION['Fname'] = $u->Fname;
-							$_SESSION['Lname'] = $u->Lname;
-							$user->updateLastLogin();
-							if (isset($_POST['chkRemember'])) {
-								setcookie('remember_key',true,(time()+3*24*60*60));
-								setcookie('username',$u->username,(time()+3*24*60*60));
-							}
-							$this->redirect('dashboard/index');
-							//header('location:../dashboard/index');
-
-						}else{
-							$err['password'] = 'Invalid Password';
+				$this->user->username = $username;
+				$this->user->password = $password;
+				$this->view->userdata = $this->user->checkLogin();
+				//print_r($this->view->userdata);
+				if ($this->view->userdata) {
+					$ud = $this->view->userdata[0];
+					//print_r($ud);
+					$newp = sha1($ud->salt.$password);
+					//echo $newp;
+					if (($newp == $ud->password) && ($ud->status == 1)) {
+						session_start();
+						$_SESSION['cusername'] = $ud->username;
+						$_SESSION['cemail'] = $ud->email;
+						$_SESSION['cFname'] = $ud->Fname;
+						$_SESSION['cLname'] = $ud->Lname;
+						$this->user->updateLastLogin();
+						if (isset($_POST['chkRemember'])) {
+							setcookie('cremember_key',true,(time()+3*24*60*60));
+							setcookie('cusername',$ud->username,(time()+3*24*60*60));
 						}
+						$this->redirect('dashboard/index');
 					}else{
-						$err['username'] = 'Invalid Username';
+						$_SESSION['error_message'] = "Invalid password";
 					}
-					
+				}else{
+					$_SESSION['error_message'] = "Invalid Username or Password";
 				}
-				
-			}
-			//calling view via controller in libs folder
-			$this->view->loadView('user/login',false,false);
-			//require_once "view/user/login.php";
-		}
-
-
-		function signup(){
-			echo "User Signup function";
-		}
-
-
-		function logout(){
-			session_start();
-			session_destroy();
-			setcookie('username',''.(time()-1));
-			setcookie('remember_key',false.(time()-1));
-			$this->redirect('user/login');
-		}
-
-		function profile(){
-			$user = $this->loadModel('User');
-			@session_start();
-			$user->username = $_SESSION['username'];
-			$u = $user -> checkLogin();
-			print_r($u);
-			$this->view->userdata = $u;
-
-			if (isset($_POST['btnUpdate'])) {
-				print_r($_POST);
-				$user->id = $u->id;
-				$user->email = $_POST['email'];
-				$user->Fname = $_POST['Fname'];
-				$user->Lname = $_POST['Lname'];
-				//$user->profile_picture = $_POST['profile_picture'];
-
-				if (isset($_FILES['profile_picture']['name']) && !empty($_FILES['profile_picture']['name'])) {
-					$fn = uniqid().'_'.$_FILES['profile_picture']['name'];
-					move_uploaded_file($_FILES['profile_picture']['tmp_name'], 'public/images/admin/'.$fn);
-					$user->profile_picture = $fn;
-					//echo( $fn);
-				}
-				$st = $user -> updateProfile();
-				$this->redirect('dashboard/index');
-				
 			}
 
-			$this->view->loadView('user/profile',false,false);
+			
 		}
 
-		
-
+		$this->view->title = 'FitnessTracker | Log in';
+		$this->view->loadView('user/login',false,false);
 	}
+
+	function signup(){
+		//print_r($_POST);
+		if (isset($_POST['btnSignup'])) {
+			$err = array();
+			if (isset($_POST['username']) && !empty($_POST['username'])) {
+				$username = $_POST['username'];
+			}else{
+				$err['username'] = " Enter Username";
+			}
+			if (isset($_POST['password']) && !empty($_POST['password'])) {
+				$password = $_POST['password'];
+			}else{
+				$err['password'] = " Enter Password";
+			}
+			if (isset($_POST['Fname']) && !empty($_POST['Fname'])) {
+				$Fname = $_POST['Fname'];
+			}else{
+				$err['Fname'] = " Enter First Name";
+			}
+			if (isset($_POST['Lname']) && !empty($_POST['Lname'])) {
+				$Lname = $_POST['Lname'];
+			}else{
+				$err['Lname'] = " Enter Last Name";
+			}
+			if (isset($_POST['email']) && !empty($_POST['email'])) {
+				$email = $_POST['email'];
+			}else{
+				$err['email'] = " Enter Email";
+			}
+
+
+			if (count($err) == 0) {
+				//generating salt key
+				$a = uniqid();
+				$pass = sha1($a.$password);
+				$this->user->username = $username;
+				$this->user->salt = $a;
+				$this->user->password = $pass;
+				$this->user->Fname = $Fname;
+				$this->user->Lname = $Lname;
+				$this->user->email = $email;
+
+				/*if (isset($_FILES['profile_picture']['name']) && !empty($_FILES['profile_picture']['name'])) {
+					$fn = uniqid().'_'.$_FILES['profile_picture']['name'];
+					move_uploaded_file($_FILES['profile_picture']['tmp_name'], 'public/images/customer/'.$fn);
+					$this->user->profile_picture = $fn;
+					//echo( $fn);
+				}*/
+				 $createid = $this->user->createUser();
+				 //echo $createid;
+				 if ($createid) {
+				 	$this->redirect('user/login');
+				 	$_SESSION['success_message'] = "Sign Up Success. Welcome to the family!!";
+				 }else{
+				 	$_SESSION['error_message'] = "Sign Up Not Successful";
+				 }
+			}
+		}
+
+		$this->view->title = 'FitnessTracker | Sign Up';
+		$this->view->loadView('user/signup',false,false);
+	}
+  
+}
+
 ?>

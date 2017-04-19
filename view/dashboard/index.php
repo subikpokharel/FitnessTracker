@@ -60,6 +60,38 @@
 
           <!-- Main row -->
           <div class="row">
+
+          <div class="col-md-12">
+          <div class="col-md-6">
+              <div class="box box-default">
+                <div class="box-header with-border">
+                  <h3 class="box-title">Database Usage</h3>
+                </div><!-- /.box-header -->
+                <div class="box-body">
+                  <div class="row">
+                    <div class="col-md-8">
+                      <div class="chart-responsive">
+                        <canvas id="pieChart" height="150"></canvas>
+
+                         <div id="container" style="min-width: 310px; height: 100px; max-width: 600px; margin: 0 auto"></div>
+                      </div><!-- ./chart-responsive -->
+                    </div><!-- /.col -->
+                    <div class="col-md-4">
+                      <ul class="chart-legend clearfix">
+                        <li><i class="fa fa-circle-o text-red"></i> Cardio Exercise</li>
+                        <li><i class="fa fa-circle-o text-green"></i> Strength Exercise</li>
+                        <li><i class="fa fa-circle-o text-yellow"></i> Food Reference</li>
+                        <li><i class="fa fa-circle-o text-aqua"></i> Members</li>
+                        <li><i class="fa fa-circle-o text-light-blue"></i> Measurement Units</li>
+                        <li><i class="fa fa-circle-o text-gray"></i> Calories Reference</li>
+                        <li><i class="fa fa-circle-o text-violet"></i> BMI Reference</li>
+                      </ul>
+                    </div><!-- /.col -->
+                    </div>
+                  </div><!-- /.row -->
+                </div><!-- /.box-body -->
+              </div><!-- /.box -->
+            </div><!-- /.col -->
             <!-- Left col -->
             <div class="col-md-8">
               <div class="row">
@@ -113,33 +145,7 @@
               </div><!-- /.row -->
             </div><!-- /.col -->
 
-            <div class="col-md-4">
-              <div class="box box-default">
-                <div class="box-header with-border">
-                  <h3 class="box-title">Database Usage</h3>
-                </div><!-- /.box-header -->
-                <div class="box-body">
-                  <div class="row">
-                    <div class="col-md-7">
-                      <div class="chart-responsive">
-                        <canvas id="pieChart" height="150"></canvas>
-                      </div><!-- ./chart-responsive -->
-                    </div><!-- /.col -->
-                    <div class="col-md-5">
-                      <ul class="chart-legend clearfix">
-                        <li><i class="fa fa-circle-o text-red"></i> Cardio Exercise</li>
-                        <li><i class="fa fa-circle-o text-green"></i> Strength Exercise</li>
-                        <li><i class="fa fa-circle-o text-yellow"></i> Food Reference</li>
-                        <li><i class="fa fa-circle-o text-aqua"></i> Members</li>
-                        <li><i class="fa fa-circle-o text-light-blue"></i> Measurement Units</li>
-                        <li><i class="fa fa-circle-o text-gray"></i> Calories Reference</li>
-                        <li><i class="fa fa-circle-o text-violet"></i> BMI Reference</li>
-                      </ul>
-                    </div><!-- /.col -->
-                  </div><!-- /.row -->
-                </div><!-- /.box-body -->
-              </div><!-- /.box -->
-            </div><!-- /.col -->
+            
           </div><!-- /.row -->
         </section><!-- /.content -->
       </div><!-- /.content-wrapper -->

@@ -23,7 +23,9 @@
      <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/validation/demo/css/screen.css">
 
 
-
+    <!--for pichart -->
+    <script src="https://code.highcharts.com/highcharts.js"></script>
+    <script src="https://code.highcharts.com/modules/exporting.js"></script>
        <!-- jQuery 2.1.4 -->
     <script src="<?php echo base_url()?>public/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
@@ -119,7 +121,7 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
 
-            <li><a href="<?php echo base_url()?>dashboard/index"><i class="fa fa-book"></i> <span>Dashboard Management</span></a></li>
+            <li><a href="<?php echo base_url()?>dashboard/index"><i class="fa fa-dashboard"></i> <span>Dashboard Management</span></a></li>
 
 
             <li class="treeview">
