@@ -7,15 +7,15 @@ class Model {
 		/************************************************************
 				Database Configuration
   			*************************************************************/
-  $dbUser = "spokharel";
+ /* $dbUser = "spokharel";
   $dbPassword = "w1147112";
   $database = "spokharel";
-  $host     = "mysqldev.aero.und.edu";
+  $host     = "mysqldev.aero.und.edu";*/
 
- /*$dbUser = "root";
+ $dbUser = "root";
   $dbPassword= "";
   $database = "db_455_project";
-  $host     = "localhost";*/
+  $host     = "localhost";
 		$this->conn = new mysqli($host, $dbUser, $dbPassword,$database);
 		if ($this->conn->connect_errno != 0) {
 			die('database connection error');

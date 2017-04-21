@@ -34,46 +34,67 @@
   <div class="col-xs-8">
   <div class="signup-box">
       <div class="login-logo">
-        <a href="<?php echo base_url()?>user/signup"><b>Customer</b>SignUp</a>
+        <a href="<?php echo base_url()?>user/signup">Additional Information</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       <?php echo SessionHelper::flashMessage();  ?>
       <!--enctype="multipart/form-data"-->
-         <form action="<?php echo base_url()?>user/signup" method="post" id="signupForm" enctype="multipart/form-data"  novalidate>
+         <form action="<?php echo base_url()?>cusdetails/index" method="post" id="detailsForm"  novalidate>
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="userName">Username</label>
-                      <input type="text" class="form-control" id="userName" placeholder="Enter a desired username" name="username" required>
+                      <label for="userHeight">Height</label>
+                      <div class="row">
+                        <div class="col-xs-6">
+                           <input type="text" class="form-control" id="userHeight" placeholder="Enter your height" name="height" required>
+                        </div>
+                        <div class="col-xs-4">
+                          <select name="unit_height" class="form-control">
+                              
+                              <option value="0"> Inches </option>
+                              <option value="1"> Meters </option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label for="pass">Password</label>
-                      <input type="password" class="form-control" id="pass" placeholder="Enter Password" name="password" required>
+                      <label for="userWeight">Weight</label>
+                      <div class="row">
+                        <div class="col-xs-6">
+                           <input type="text" class="form-control" id="userWeight" placeholder="Enter your Weight" name="weight" required>
+                        </div>
+                        <div class="col-xs-4">
+                          <select name="unit_weight" class="form-control">
+                              
+                              <option value="0"> Pounds </option>
+                              <option value="1"> Kg </option>
+                          </select>
+                        </div>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label for="first">First Name</label>
-                      <input type="text" class="form-control" id="first" placeholder="Enter your First Name" name="Fname" required>
+                      <label >  Gender  </label>
+                      <input type="radio" value="male" name="gender" checked=""> Male
+                      <input type="radio" value="female" name="gender"> Female
+                    </div>
+
+                    <div class="form-group">
+                      <label for="dob">Date of Birth</label>
+                      <input type="date" class="form-control" id="dob" placeholder="yyyy-mm-dd" name="dob" required>
                     </div>
                     <div class="form-group">
-                      <label for="last">Last Name</label>
-                      <input type="text" class="form-control" id="last" placeholder="Enter your Last Name" name="Lname" required>
+                      <label for="addr">Address</label>
+                      <input type="text" class="form-control" id="addr" placeholder="Enter your Address" name="address" required>
                     </div>
                     <div class="form-group">
-                      <label for="eMail">Email</label>
-                      <input type="email" class="form-control" id="eMail" placeholder="Enter Email" name="email" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="profilePicture">Profile Picture</label>
-                      <input type="file" id="profilePicture" class="form-control" name="profile_picture">
+                      <label for="phone">Telephone</label>
+                      <input type="tel" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" required>
                     </div>
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">
                     <div class="row">
-                       <div class="col-xs-10">
-                          <button type="submit" name="btnSignup" class="btn btn-primary">Sign Up</button>
-                        </div>
-                        <div class="col-xs-2">
-                          <button type="submit" class="btn btn-default"><a href="<?php echo base_url()?>user/login">Back to Login</a></button>
+                       <div class="col-xs-12">
+                          <button type="submit" name="btnAdd" class="btn btn-primary">Add Information</button>
                         </div>
                       </div>
                   </div>
@@ -103,7 +124,7 @@
     <script>
       $(function () {
 
-        $("#signupForm").validate();
+        $("#detailsForm").validate();
 
         $('input').iCheck({
           checkboxClass: 'icheckbox_square-blue',

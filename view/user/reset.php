@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Forgot Password</title>
+    <title>Reset Password</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
@@ -29,35 +29,35 @@
   <body class="hold-transition login-page">
     <div class="login-box">
       <div class="login-logo">
-        <a href="<?php echo base_url()?>user/index"><b>Forgot Password</b>?</a>
+        <a href="<?php echo base_url()?>user/reset"><b>Reset </b>Password</a>
       </div><!-- /.login-logo -->
       <?php echo SessionHelper::flashMessage();  ?>
       <div class="login-box-body">
-        <p class="login-box-msg">Please enter your username and email</p>
-        <form action="<?php echo base_url()?>user/forgot" method="post" id="loginForm"  novalidate>
+        <p class="login-box-msg">Please enter your new password</p>
+        <form action="<?php echo base_url()?>user/reset" method="post" id="loginForm"  novalidate>
           <div class="form-group has-feedback">
-            <input type="text" class="form-control" placeholder="Username" name="username" required="">
-            <?php
-              if (isset($err['username'])) {
-                echo $err['username'];
-              }
-            ?>
-            <span class="glyphicon glyphicon-user form-control-feedback"></span>
-          </div>
-          <div class="form-group has-feedback">
-            <input type="email" class="form-control" placeholder="Email" name="email" required="">
+            <input type="password" class="form-control" placeholder="Password" name="password" required="">
             <?php
               if (isset($err['password'])) {
                 echo $err['password'];
               }
             ?>
-            <span class="glyphicon glyphicon-envelope  form-control-feedback"></span>
+            <span class="glyphicon glyphicon-lock form-control-feedback"></span>
+          </div>
+          <div class="form-group has-feedback">
+            <input type="password" class="form-control" placeholder="Confirm Password" name="cpassword" required="">
+            <?php
+              if (isset($err['cpassword'])) {
+                echo $err['cpassword'];
+              }
+            ?>
+            <span class="glyphicon glyphicon-lock  form-control-feedback"></span>
           </div>
           <div class="row">
-            <div class="col-xs-4"> 
+            <div class="col-xs-2"> 
             </div><!-- /.col -->
-            <div class="col-xs-4">
-              <button type="submit" name="btnSubmit" class="btn btn-primary btn-block btn-flat">Submit</button>
+            <div class="col-xs-8">
+              <button type="submit" name="btnReset" class="btn btn-danger btn-block btn-flat">Reset Password</button>
             </div><!-- /.col -->
             <div class="col-xs-2"> 
             </div><!-- /.col -->

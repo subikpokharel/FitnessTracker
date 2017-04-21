@@ -7,27 +7,27 @@
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <!-- Bootstrap 3.3.5 -->
-    <link rel="stylesheet" href="<?php echo base_url()?>public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>admin/public/bootstrap/css/bootstrap.min.css">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
     <!-- Ionicons -->
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- jvectormap -->
-    <link rel="stylesheet" href="<?php echo base_url()?>public/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>admin/public/plugins/jvectormap/jquery-jvectormap-1.2.2.css">
     <!-- Theme style -->
-    <link rel="stylesheet" href="<?php echo base_url()?>public/dist/css/AdminLTE.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>admin/public/dist/css/AdminLTE.min.css">
     <!-- AdminLTE Skins. Choose a skin from the css/skins
          folder instead of downloading all of them to reduce the load. -->
-    <link rel="stylesheet" href="<?php echo base_url()?>public/dist/css/skins/_all-skins.min.css">
+    <link rel="stylesheet" href="<?php echo base_url()?>admin/public/dist/css/skins/_all-skins.min.css">
 
-     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>public/validation/demo/css/screen.css">
+     <link rel="stylesheet" type="text/css" href="<?php echo base_url()?>admin/public/validation/demo/css/screen.css">
 
 
     <!--for pichart -->
     <script src="https://code.highcharts.com/highcharts.js"></script>
     <script src="https://code.highcharts.com/modules/exporting.js"></script>
        <!-- jQuery 2.1.4 -->
-    <script src="<?php echo base_url()?>public/plugins/jQuery/jQuery-2.1.4.min.js"></script>
+    <script src="<?php echo base_url()?>admin/public/plugins/jQuery/jQuery-2.1.4.min.js"></script>
 
     <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
@@ -44,9 +44,9 @@
         <!-- Logo -->
         <a href="<?php echo base_url()?>dashboard/index" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>TrackFitness</b>Admin</span>
+          <span class="logo-mini"><b>F</b>T</span>
           <!-- logo for regular state and mobile devices -->
-          <span class="logo-lg"><b>TrackFitness</b>Admin</span>
+          <span class="logo-lg"><b>FitnessTracker</b></span>
         </a>
 
         <!-- Header Navbar: style can be found in header.less -->
@@ -61,22 +61,22 @@
               <!-- User Account: style can be found in dropdown.less -->
               <li class="dropdown user user-menu">
                 <a href="<?php echo base_url()?>public/#" class="dropdown-toggle" data-toggle="dropdown">
-                  <img src="<?php echo base_url()?>public/images/admin/<?php echo $this->userdata->profile_picture ?>" class="user-image" alt="User Image">
-                  <span class="hidden-xs"><?php echo ucfirst($this->userdata->Fname); ?> <?php echo ucfirst($this->userdata->Lname); ?></span>
+                  <img src="<?php echo base_url()?>public/images/customer/<?php echo $this->userdata[0]->profile_picture; ?>" class="user-image" alt="User Image">
+                  <span class="hidden-xs"><?php echo ucfirst($this->userdata[0]->Fname); ?> <?php echo ucfirst($this->userdata[0]->Lname); ?></span>
                 </a>
                 <ul class="dropdown-menu">
                   <!-- User image -->
                   <li class="user-header">
-                    <img src="<?php echo base_url()?>public/images/admin/<?php echo $this->userdata->profile_picture ?>" class="img-circle" alt="User Image">
+                    <img src="<?php echo base_url()?>public/images/customer/<?php echo $this->userdata[0]->profile_picture; ?>" class="img-circle" alt="User Image">
                     <p>
-                      <?php echo ucfirst($this->userdata->Fname); ?> <?php echo ucfirst($this->userdata->Lname); ?><br> <?php echo $this->userdata->username ?>
-                      <small>Logged In Since:  <?php echo $this->userdata->last_login ?></small>
+                       <?php echo"Hello,"; echo ucfirst($this->userdata[0]->Fname); ?> <?php echo ucfirst($this->userdata[0]->Lname); ?><br> <?php echo $this->userdata[0]->username ?>
+                      <small>Logged In Since:  <?php echo $this->userdata[0]->last_login ?></small>
                     </p>
                   </li>
                   <!-- Menu Footer-->
                   <li class="user-footer">
                     <div class="pull-left">
-                      <a href="<?php echo base_url()?>user/profile" class="btn btn-default btn-flat">Profile</a>
+                      <a href="<?php echo base_url()?>user/profile/<?php echo $this->userdata[0]->cus_id?>" class="btn btn-default btn-flat">Profile</a>
                     </div>
                     <div class="pull-right">
                       <a href="<?php echo base_url()?>user/logout" class="btn btn-default btn-flat">Sign out</a>
@@ -85,9 +85,7 @@
                 </ul>
               </li>
               <!-- Control Sidebar Toggle Button -->
-              <li>
-                <a href="<?php echo base_url()?>public/#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>
+             
             </ul>
           </div>
 
@@ -98,15 +96,15 @@
         <!-- sidebar: style can be found in sidebar.less -->
         <section class="sidebar">
           <!-- Sidebar user panel -->
-          <div class="user-panel">
+          <!--<div class="user-panel">
             <div class="pull-left image">
-              <img src="<?php echo base_url()?>public/images/admin/<?php echo $this->userdata->profile_picture ?>" class="img-circle" alt="User Image">
+              <img src="<?php echo base_url()?>public/images/customer/<?php echo $this->userdata[0]->profile_picture; ?>" class="img-circle" alt="User Image">
             </div>
             <div class="pull-left info">
-              <p><?php echo ucfirst($this->userdata->Fname); ?> <?php echo ucfirst($this->userdata->Lname); ?></p>
-              <a href="<?php echo base_url()?>public/#"><i class="fa fa-circle text-success"></i> Online</a>
+              <p><?php echo ucfirst($this->userdata[0]->Fname); ?> <?php echo ucfirst($this->userdata[0]->Lname); ?></p>
+              <a href="<?php echo base_url()?>dashboard/index"><i class="fa fa-circle text-success"></i> Online</a>
             </div>
-          </div>
+          </div>-->
           <!-- search form -->
           <form action="#" method="get" class="sidebar-form">
             <div class="input-group">
@@ -121,30 +119,36 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
 
-            <li><a href="<?php echo base_url()?>dashboard/index"><i class="fa fa-dashboard"></i> <span>Dashboard Management</span></a></li>
+            <li><a href="<?php echo base_url()?>dashboard/index"><i class="fa fa-home"></i> <span>My Home</span>  <i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li><a href="<?php echo base_url()?>food/index"><i class="fa fa-book"></i> <span>Home</span></a></li>
+                    <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-book"></i> <span>Goals</span></a></li>
+                    <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-book"></i> <span>Check In</span></a></li>
+              </ul>
+            </li>
 
 
             <li class="treeview">
               <a href="<?php echo base_url()?>public/#">
-                <i class="fa fa-dashboard"></i> <span>Exercise Management</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-balance-scale"></i> <span>Food</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url()?>cardio/index"><i class="fa fa-book"></i> <span>Cardio Exercise</span></a></li>
-                <li><a href="<?php echo base_url()?>strength/index"><i class="fa fa-book"></i> <span>Strength Exercise</span></a></li>
+                <li><a href="<?php echo base_url()?>cardio/index"><i class="fa fa-book"></i> <span>Food Diary</span></a></li>
+                <li><a href="<?php echo base_url()?>strength/index"><i class="fa fa-database"></i> <span>Food Database</span></a></li>
               </ul>
             </li>
 
             <li class="treeview">
               <a href="<?php echo base_url()?>public/#">
-                <i class="fa fa-dashboard"></i> <span>Food Management</span> <i class="fa fa-angle-left pull-right"></i>
+                <i class="fa fa-line-chart"></i> <span>Exercise</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url()?>food/index"><i class="fa fa-book"></i> <span>Food Reference</span></a></li>
-                <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-book"></i> <span>Food Measurement Units</span></a></li>
+                <li><a href="<?php echo base_url()?>food/index"><i class="fa fa-book"></i> <span>Exercise Diary</span></a></li>
+                <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-database"></i> <span>Exercise Databse</span></a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url()?>bmi/index"><i class="fa fa-book"></i> <span>BMI Management</span></a></li>
-            <li><a href="<?php echo base_url()?>requiredcalories/index"><i class="fa fa-book"></i> <span>Required Calories Management</span></a></li>
+            <li><a href="<?php echo base_url()?>bmi/index"><i class="fa  fa-heartbeat"></i> <span>Health</span></a></li>
+            <li><a href="<?php echo base_url()?>requiredcalories/index"><i class="fa fa-bar-chart-o"></i> <span>Report</span></a></li>
           </ul>
         </section>
       </aside>

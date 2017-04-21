@@ -9,8 +9,10 @@
 		}
 
 		function loadModel($name){
+			//echo $name;
 			$name = $name . 'Model';
 			$mfname = "model/$name.php";
+			//echo $mfname;
 			if (file_exists($mfname)) {
 				require_once "$mfname";
 				return new $name();

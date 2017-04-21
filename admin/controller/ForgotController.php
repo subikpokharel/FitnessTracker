@@ -75,6 +75,10 @@
 						$pass = sha1($a.$password);
 						$u = $user->resetPassword($a, $pass, $user->username);
 						$this->redirect('user/login');
+						session_start();
+						session_destroy();
+						setcookie('username',''.(time()-1));
+						setcookie('remember_key',false.(time()-1));
 						@session_start();
 						$_SESSION['success_message'] = "Password Reset Successful";
 						

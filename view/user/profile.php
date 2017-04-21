@@ -34,46 +34,48 @@
   <div class="col-xs-8">
   <div class="signup-box">
       <div class="login-logo">
-        <a href="<?php echo base_url()?>user/signup"><b>Customer</b>SignUp</a>
+        <a href="<?php echo base_url()?>user/profile"><b>Customer</b>Profile</a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       <?php echo SessionHelper::flashMessage();  ?>
       <!--enctype="multipart/form-data"-->
-         <form action="<?php echo base_url()?>user/signup" method="post" id="signupForm" enctype="multipart/form-data"  novalidate>
+         <form action="<?php echo base_url()?>user/profile/<?php echo $this->userdata->cus_id ?>" method="post" id="profileForm" enctype="multipart/form-data"  novalidate>
                   <div class="box-body">
                     <div class="form-group">
-                      <label for="userName">Username</label>
-                      <input type="text" class="form-control" id="userName" placeholder="Enter a desired username" name="username" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="pass">Password</label>
-                      <input type="password" class="form-control" id="pass" placeholder="Enter Password" name="password" required>
+                      <label>Hello, <?php echo ucfirst($this->userdata->username); ?></label>   
                     </div>
                     <div class="form-group">
                       <label for="first">First Name</label>
-                      <input type="text" class="form-control" id="first" placeholder="Enter your First Name" name="Fname" required>
+                      <input type="text" class="form-control" id="first" placeholder="Enter your First Name" value="<?php echo ($this->userdata->Fname); ?>" name="Fname" required>
                     </div>
                     <div class="form-group">
                       <label for="last">Last Name</label>
-                      <input type="text" class="form-control" id="last" placeholder="Enter your Last Name" name="Lname" required>
+                      <input type="text" class="form-control" id="last" placeholder="Enter your Last Name" value="<?php echo ($this->userdata->Lname); ?>"  name="Lname" required>
                     </div>
                     <div class="form-group">
                       <label for="eMail">Email</label>
-                      <input type="email" class="form-control" id="eMail" placeholder="Enter Email" name="email" required>
+                      <input type="email" class="form-control" id="eMail" placeholder="Enter Email" value="<?php echo ($this->userdata->email); ?>"  name="email" required>
                     </div>
                     <div class="form-group">
-                      <label for="profilePicture">Profile Picture</label>
-                      <input type="file" id="profilePicture" class="form-control" name="profile_picture">
+                     <div class="user-panel">
+                          <div class="pull-left image">
+                             <img src="<?php echo base_url()?>public/images/customer/<?php echo $this->userdata->profile_picture; ?>" class="img-circle" alt="User Image">
+                          </div>
+                          <div class="pull-left info">
+                              <label for="profilePicture">Change Profile Picture</label>
+                              <input type="file" id="profilePicture" class="form-control" name="profile_picture">
+                          </div>
+                        </div>  
                     </div>
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">
                     <div class="row">
                        <div class="col-xs-10">
-                          <button type="submit" name="btnSignup" class="btn btn-primary">Sign Up</button>
+                          <button type="submit" name="btnUpdate" class="btn btn-primary">Update Profile</button>
                         </div>
                         <div class="col-xs-2">
-                          <button type="submit" class="btn btn-default"><a href="<?php echo base_url()?>user/login">Back to Login</a></button>
+                          <button type="submit" class="btn btn-default"><a href="<?php echo base_url()?>dashboard/index">Back to Home</a></button>
                         </div>
                       </div>
                   </div>
@@ -103,7 +105,7 @@
     <script>
       $(function () {
 
-        $("#signupForm").validate();
+        $("#profileForm").validate();
 
         $('input').iCheck({
           checkboxClass: 'icheckbox_square-blue',
