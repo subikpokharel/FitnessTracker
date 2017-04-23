@@ -42,7 +42,7 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="<?php echo base_url()?>dashboard/index" class="logo">
+        <a href="<?php echo base_url()?>myhome/index" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
           <span class="logo-mini"><b>F</b>T</span>
           <!-- logo for regular state and mobile devices -->
@@ -119,10 +119,10 @@
           <ul class="sidebar-menu">
             <li class="header">MAIN NAVIGATION</li>
 
-            <li><a href="<?php echo base_url()?>dashboard/index"><i class="fa fa-home"></i> <span>My Home</span>  <i class="fa fa-angle-left pull-right"></i></a>
+            <li><a href="<?php echo base_url()?>myhome/index"><i class="fa fa-home"></i> <span>My Home</span>  <i class="fa fa-angle-left pull-right"></i></a>
                 <ul class="treeview-menu">
-                    <li><a href="<?php echo base_url()?>food/index"><i class="fa fa-book"></i> <span>Home</span></a></li>
-                    <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-book"></i> <span>Goals</span></a></li>
+                    <li><a href="<?php echo base_url()?>myhome/index"><i class="fa fa-book"></i> <span>Home</span></a></li>
+                    <li><a href="<?php echo base_url()?>usergoal/index"><i class="fa fa-book"></i> <span>Goals</span></a></li>
                     <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-book"></i> <span>Check In</span></a></li>
               </ul>
             </li>

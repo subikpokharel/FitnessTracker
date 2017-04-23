@@ -1,6 +1,6 @@
 <?php
 
-	class DashboardController extends Controller{
+	class MyhomeController extends Controller{
 
 		function __construct(){
 			parent::__construct();
@@ -15,12 +15,9 @@
 			}else{
 				$this->user->username = $_SESSION['cusername'];
 				$ud = $this->user->checkLogin();
-				//print_r($ud);
 				$this->view->userdata = $ud;
-				//print_r($this->view->userdata);
-				//print_r($_SESSION['cusername']);
 				$this->view->title = 'My Home';
-				$this->view->loadView('dashboard/index');
+				$this->view->loadView('myhome/index');
 			}
 		}
 	}

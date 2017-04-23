@@ -84,10 +84,7 @@
                   </li>
                 </ul>
               </li>
-              <!-- Control Sidebar Toggle Button -->
-              <li>
-                <a href="<?php echo base_url()?>public/#" data-toggle="control-sidebar"><i class="fa fa-gears"></i></a>
-              </li>
+            
             </ul>
           </div>
 

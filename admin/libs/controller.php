@@ -8,11 +8,16 @@
 			$this->view = new View();
 		}
 
-		function loadModel($name){
+		function loadModel($name,$admin = false){
 			//echo $name;
 			$name = $name . 'Model';
-			$mfname = "model/$name.php";
+			
 			//echo $mfname;
+			if ($admin) {
+				$mfname = "admin/model/$name.php";
+			}else{
+				$mfname = "model/$name.php";
+			}
 			if (file_exists($mfname)) {
 				require_once "$mfname";
 				return new $name();

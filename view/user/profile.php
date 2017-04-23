@@ -75,7 +75,7 @@
                           <button type="submit" name="btnUpdate" class="btn btn-primary">Update Profile</button>
                         </div>
                         <div class="col-xs-2">
-                          <button type="submit" class="btn btn-default"><a href="<?php echo base_url()?>dashboard/index">Back to Home</a></button>
+                          <button type="submit" class="btn btn-default"><a href="<?php echo base_url()?>myhome/index">Back to Home</a></button>
                         </div>
                       </div>
                   </div>

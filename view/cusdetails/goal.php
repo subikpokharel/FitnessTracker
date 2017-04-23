@@ -34,67 +34,48 @@
   <div class="col-xs-8">
   <div class="signup-box">
       <div class="login-logo">
-        <a href="<?php echo base_url()?>cusdetails/index">Additional Information</a>
+        <a href="<?php echo base_url()?>cusdetails/goal"><small>Set your goal</small></a>
       </div><!-- /.login-logo -->
       <div class="login-box-body">
       <?php echo SessionHelper::flashMessage();  ?>
       <!--enctype="multipart/form-data"-->
-         <form action="<?php echo base_url()?>cusdetails/index" method="post" id="detailsForm"  novalidate>
+         <form action="<?php echo base_url()?>cusdetails/goal" method="post" id="goalForm"  novalidate>
                   <div class="box-body">
-                    <div class="form-group">
-                      <label for="userHeight">Height</label>
-                      <div class="row">
-                        <div class="col-xs-6">
-                           <input type="text" class="form-control" id="userHeight" placeholder="Enter your height" name="height" required>
-                        </div>
-                        <div class="col-xs-4">
-                          <select name="unit_height" class="form-control">
-                              
-                              <option value="0"> Inches </option>
-                              <option value="1"> Meters </option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label for="userWeight">Weight</label>
-                      <div class="row">
-                        <div class="col-xs-6">
-                           <input type="text" class="form-control" id="userWeight" placeholder="Enter your Weight" name="weight" required>
-                        </div>
-                        <div class="col-xs-4">
-                          <select name="unit_weight" class="form-control">
-                              
-                              <option value="0"> Pounds </option>
-                              <option value="1"> Kg </option>
-                          </select>
-                        </div>
-                      </div>
-                    </div>
-                    <div class="form-group">
-                      <label >  Gender  </label>
-                      <input type="radio" value="male" name="gender" checked=""> Male
-                      <input type="radio" value="female" name="gender"> Female
+                  	<div class="form-group">
+                      <label>Based on your previous information, your BMI = <?php echo($this->ubmi->bmi) ?> which is categorised as <?php echo($this->remarks) ?>.</label><br>
                     </div>
 
+
+
                     <div class="form-group">
-                      <label for="dob">Date of Birth</label>
-                      <input type="date" class="form-control" id="dob" placeholder="yyyy-mm-dd" name="dob" required>
+                      <label>How would you describe your normal daily activities?</label><br>
+                      <div class="radio">
+                      <input type="radio" name="exercise_level" value="<?php echo $this->rc[0]->id ?>" checked> <?php echo $this->rc[0]->exercise_level ?><br>
+                      <input type="radio" name="exercise_level" value="<?php echo $this->rc[1]->id ?>"> <?php echo $this->rc[1]->exercise_level ?><br>
+                       <input type="radio" name="exercise_level" value="<?php echo $this->rc[2]->id ?>"> <?php echo $this->rc[2]->exercise_level ?><br>
+                      <input type="radio" name="exercise_level" value="<?php echo $this->rc[3]->id ?>"> <?php echo $this->rc[3]->exercise_level ?><br>
+                      <input type="radio" name="exercise_level" value="<?php echo $this->rc[4]->id ?>"> <?php echo $this->rc[4]->exercise_level ?><br>
+                      </div>
                     </div>
                     <div class="form-group">
-                      <label for="addr">Address</label>
-                      <input type="text" class="form-control" id="addr" placeholder="Enter your Address" name="address" required>
-                    </div>
-                    <div class="form-group">
-                      <label for="phone">Telephone</label>
-                      <input type="tel" class="form-control" id="phone" placeholder="Enter Phone Number" name="phone" required>
+                      <label for="setGoal">What is your Goal?</label>
+                          <select name="weight_per_week" class="form-control">
+                              <option value="1"> Lose 2 Pounds per week</option>
+                              <option value="2"> Lose 1.5 Pounds per week</option>
+                              <option value="3" selected> Lose 1 Pounds per week</option>
+                              <option value="4"> Lose .5 Pounds per week</option>
+                              <option value="5"> Maintain your current weight</option>
+                              <option value="6"> Gain .5 Pounds per week</option>
+                              <option value="7"> Gain 1 Pounds per week</option>
+                          </select>
+                      </div>
                     </div>
                   </div><!-- /.box-body -->
 
                   <div class="box-footer">
                     <div class="row">
                        <div class="col-xs-12">
-                          <button type="submit" name="btnAdd" class="btn btn-primary">Add Information</button>
+                          <button type="submit" name="btnAddGoal" class="btn btn-success">Save and Continue >></button>
                         </div>
                       </div>
                   </div>
@@ -124,7 +105,7 @@
     <script>
       $(function () {
 
-        $("#detailsForm").validate();
+        $("#goalForm").validate();
 
         $('input').iCheck({
           checkboxClass: 'icheckbox_square-blue',
@@ -137,4 +118,3 @@
 </html>
  
 
- 
