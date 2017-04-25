@@ -36,7 +36,7 @@
                        <tr>
                         <td><?php echo $i; ?></td>
                         <td><?php echo $cl->name; ?></td>
-                        <td> <a href="<?php echo base_url() ?>exercise/add/<?php echo $fl->id?>" class="btn btn-default">Add Exercise</a></td>
+                        <td> <a href="<?php echo base_url() ?>exercise/cadd/<?php echo $cl->id?>" class="btn btn-default">Add Exercise</a></td>
                     <?php $i++; } ?>
                     </tbody>
                     <tfoot>

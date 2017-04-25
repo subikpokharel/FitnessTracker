@@ -61,7 +61,7 @@
                                   <?php } ?>
                             </tbody>
                             </table>
-                            <button class="btn btn-default ">Add Cardiovascular Exercise</button>
+                            <button class="btn btn-default "><a href="<?php echo base_url()?>exercise/database">Add Cardiovascular Exercise</a></button>
                           </div><!-- /.box-body -->
                       </div>
                       <div class="col-md-2">
@@ -104,7 +104,7 @@
                                   <?php } ?>
                             </tbody>
                             </table>
-                            <button class="btn btn-default ">Add Strength Exercise</button>
+                            <button class="btn btn-default "><a href="<?php echo base_url()?>exercise/database">Add Strength Exercise</a></button>
                           </div><!-- /.box-body -->
                       </div>
                       <div class="col-md-2">

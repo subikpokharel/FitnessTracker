@@ -26,5 +26,10 @@
 			$this->cus_id = $cid;
 			 return $this->select('tbl_customer_details', array('gender'),array('cus_id' => $this->cus_id));
 		}
+
+		function selectWeight($cid){
+			$this->cus_id = $cid;
+			 return $this->select('tbl_customer_details', array('weight'),array('cus_id' => $this->cus_id));
+		}
 	}
 ?>

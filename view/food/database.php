@@ -48,7 +48,7 @@
                         <td><?php echo $fl->fat; ?></td>
                         <td><?php echo $fl->carbs; ?></td>
                         <td><?php echo $fl->protein; ?></td>
-                        <td> <a href="<?php echo base_url() ?>food/delete/<?php echo $fl->id?>" class="btn btn-default">Add Food</a></td></td>
+                        <td> <a href="<?php echo base_url() ?>food/add/<?php echo $fl->id?>" class="btn btn-default">Add Food</a></td></td>
                     <?php $i++; } ?>
                     </tbody>
                     <tfoot>

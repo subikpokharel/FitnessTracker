@@ -94,8 +94,13 @@
                         <div><font color="#3c8dbc"><h2><b>=</b></h2></font></div>
                     </div>
                     <div class="col-md-2">
+                      <?php if ($this->record_data->total < 0) { ?>
+                        <div><font color="#f56954"><h2><b><?php echo $this->record_data->total ?></b></h2></font></div>
+                        <span><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Net</i></b></span>
+                      <?php } else{ ?>
                         <div><font color="#3c8dbc"><h2><b><?php echo $this->record_data->total ?></b></h2></font></div>
                         <span><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Net</i></b></span>
+                        <?php } ?>
                     </div>
                   </div>
                 </div>

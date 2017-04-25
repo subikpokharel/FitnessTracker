@@ -3,11 +3,12 @@
 	class ExerciseModel extends Model{
 		public $id,$cus_id, $name, $time, $sets, $number_per_set,$weight,$exercise_type,$calories,$date;
 
-		/*function saveCusRecords(){
+		function saveExercise(){
+			$this->date = date("Y-m-d");
 			$data = get_object_vars($this);
 			//print_r($data);
-			return $this->insert('tbl_cus_records_calories',array_keys($data),array_values($data));
-		}*/
+			return $this->insert('tbl_cus_exercise',array_keys($data),array_values($data));
+		}
 
 		function selectCexercise(){
 			$this->date = date("Y-m-d");
