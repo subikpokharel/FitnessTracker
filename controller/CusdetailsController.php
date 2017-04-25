@@ -99,7 +99,7 @@
 
 				$ugoal = $this->usergoal->selectDetails();
 				if ($ugoal) {
-					$this->redirect('myhome/index');
+					$this->redirect('cusrecords/set');
 				}else{
 					//print_r($this->view->userdata);
 					$userBmi = $this->userdetails->selectBmi($this->view->userdata->cus_id);
@@ -132,30 +132,50 @@
 						$mul = $this->requiredcalories->selectCaloriesById();
 						$rmul = $mul[0];
 						$m = ($rmul->multiplier);
-					
+
+
+						$userGender = $this->userdetails->selectGender($this->view->userdata->cus_id);
+						$ugender = $userGender[0];
+
+
 						$m = (float)$m;
 						$ubmr = (float)$ubmr->bmr;
 						$reqcal = ((float)$m * (float)$ubmr);
 						if ($dwt->goal == 'Lose') {
 							$pounds = $dwt->weight;
 							$lcal = 500*$pounds;
-							$this->usergoal->calories = $reqcal - $lcal;
+							$this->usergoal->calories = (int)($reqcal - $lcal);
 						}
 						elseif ($dwt->goal == 'Gain'){
 							$pounds = $dwt->weight;
 							$lcal = 500*$pounds;
-							$this->usergoal->calories = $reqcal + $lcal;
+							$this->usergoal->calories = (int)($reqcal + $lcal);
 						}
 						else{
-							$this->usergoal->calories = $reqcal;
+							if ($ugender->gender == 'male') {
+								$this->usergoal->calories = 2500;
+							}else{
+								$this->usergoal->calories = 2000;
+							}
+							
 						}	
+						
+
+						if (($ugender->gender == 'male') && ($this->usergoal->calories < 1500)) {
+							$this->usergoal->calories = 1500;
+						}
+						if (($ugender->gender == 'female') && ($this->usergoal->calories < 1200)) {
+							$this->usergoal->calories = 1200;
+						}
+
+						$this->usergoal->macronutrients = (int)((float)($this->usergoal->calories)*.21);
 
 
 						$inst = $this->usergoal->saveGoals();
 
 						if ($inst) {
 							$_SESSION['success_message'] = "Information Successfully added";
-							$this->redirect('myhome/index');
+							$this->redirect('cusrecords/set');
 						}else{
 								$_SESSION['error_message'] = "Could not add information";
 							}

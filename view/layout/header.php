@@ -129,22 +129,22 @@
 
 
             <li class="treeview">
-              <a href="<?php echo base_url()?>public/#">
+              <a href="<?php echo base_url()?>myhome/index">
                 <i class="fa fa-balance-scale"></i> <span>Food</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url()?>cardio/index"><i class="fa fa-book"></i> <span>Food Diary</span></a></li>
-                <li><a href="<?php echo base_url()?>strength/index"><i class="fa fa-database"></i> <span>Food Database</span></a></li>
+                <li><a href="<?php echo base_url()?>food/diary"><i class="fa fa-book"></i> <span>Food Diary</span></a></li>
+                <li><a href="<?php echo base_url()?>food/database"><i class="fa fa-database"></i> <span>Food Database</span></a></li>
               </ul>
             </li>
 
             <li class="treeview">
-              <a href="<?php echo base_url()?>public/#">
+              <a href="<?php echo base_url()?>myhome/index">
                 <i class="fa fa-line-chart"></i> <span>Exercise</span> <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
-                <li><a href="<?php echo base_url()?>food/index"><i class="fa fa-book"></i> <span>Exercise Diary</span></a></li>
-                <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-database"></i> <span>Exercise Databse</span></a></li>
+                <li><a href="<?php echo base_url()?>exercise/diary"><i class="fa fa-book"></i> <span>Exercise Diary</span></a></li>
+                <li><a href="<?php echo base_url()?>exercise/database"><i class="fa fa-database"></i> <span>Exercise Databse</span></a></li>
               </ul>
             </li>
             <li><a href="<?php echo base_url()?>bmi/index"><i class="fa  fa-heartbeat"></i> <span>Health</span></a></li>
