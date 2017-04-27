@@ -15,5 +15,13 @@
 			$sql = "select * from tbl_cus_food where cus_id = $this->cus_id and date = '$this->date'";
 			return $this->select_query($sql);
 		}
+
+		function deleteFoodById(){
+			return $this->delete('tbl_cus_food',$this->id);
+		}
+
+		function selectFoodById(){
+			return $this->select('tbl_cus_food',array('*'),array('id' => $this->id));
+		}
 	}
 ?>

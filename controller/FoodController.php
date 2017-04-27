@@ -72,6 +72,33 @@
 			$this->view->title = 'Food Add';
 			$this->view->loadView('food/add');
 		}
+
+		function delete($id){
+			$this->cusfood->id = $id;
+			$record_data = $this->usergoal->selectDetails();
+			//print_r($record_data);
+			$st = $this->cusfood->selectfoodById();
+			//print_r($st);
+
+			$this->usergoal->consumed = $record_data[0]->consumed - $st[0]->calories;
+			$this->usergoal->total = $record_data[0]->total - $st[0]->calories;
+			$st = $this->usergoal->updateconsumed($record_data[0]->id);
+			//$st = $this->cusfood->deletefoodById();
+			if ($st) {
+				$delid = $this->cusfood->deletefoodById();
+				if ($delid) {
+					$_SESSION['success_message'] = "Exercise Created Deleted with id $id";
+				}
+				
+			}else{
+				$_SESSION['error_message'] = "Exercise could not be Deleted";
+			}
+			$this->view->foodlist = $this->cusfood->selectfood();
+				
+				$this->view->title = 'Food Diary';
+				$this->view->loadView('food/diary');
+			
+		}
 	}
 
 ?>

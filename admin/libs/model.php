@@ -88,7 +88,7 @@ class Model {
 	function delete($table, $id) {
 
 		$this->connect();
-		echo $sql = "delete from $table where id=$id";
+		$sql = "delete from $table where id=$id";
 		if ($this->conn->query($sql)) {
 			return true;
 		} else {
