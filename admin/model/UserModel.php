@@ -14,15 +14,15 @@
 			/************************************************************
 				Database Configuration
   			*************************************************************/
-  $dbUser = "spokharel";
+ /* $dbUser = "spokharel";
   $dbPassword = "w1147112";
   $database = "spokharel";
-  $host     = "mysqldev.aero.und.edu";
+  $host     = "mysqldev.aero.und.edu";*/
 
-  /*$dbUser = "root";
+  $dbUser = "root";
   $dbPassword= "";
   $database = "db_455_project";
-  $host     = "localhost";*/
+  $host     = "localhost";
 
 			$conn = new mysqli($host, $dbUser, $dbPassword,$database);
 			//$conn = new mysqli('localhost','root','','db_455_project');
@@ -51,15 +51,15 @@
 			/************************************************************
 				Database Configuration
   			*************************************************************/
-  $dbUser = "spokharel";
+  /*$dbUser = "spokharel";
   $dbPassword = "w1147112";
   $database = "spokharel";
   $host     = "mysqldev.aero.und.edu";
-/*
+*/
   $dbUser = "root";
   $dbPassword= "";
   $database = "db_455_project";
-  $host     = "localhost";*/
+  $host     = "localhost";
 			$sql = "update tbl_admin set last_login='$d' where username='$this->username'";
 
 			//connecting database
@@ -93,15 +93,15 @@
 		}
 
 		function getTotal($table){
-			$dbUser = "spokharel";
+			/*$dbUser = "spokharel";
   			$dbPassword = "w1147112";
  			$database = "spokharel";
   			$host     = "mysqldev.aero.und.edu";
 			
-			/*$dbUser = "root";
+			*/$dbUser = "root";
   			$dbPassword= "";
   			$database = "db_455_project";
-  			$host     = "localhost";*/
+  			$host     = "localhost";
 			$sql = "select count(*) as total FROM $table";
 			//echo($sql);
 
@@ -121,15 +121,15 @@
 
 		function updateProfile(){
 
-			$dbUser = "spokharel";
+			/*$dbUser = "spokharel";
   			$dbPassword = "w1147112";
  			$database = "spokharel";
   			$host     = "mysqldev.aero.und.edu";
 			
-			/*$dbUser = "root";
+			*/$dbUser = "root";
   			$dbPassword= "";
   			$database = "db_455_project";
-  			$host     = "localhost";*/
+  			$host     = "localhost";
 			$sql = "update tbl_admin set email='$this->email',Fname='$this->Fname',Lname='$this->Lname', profile_picture='$this->profile_picture' where id='$this->id'";
 			//echo($sql);
 

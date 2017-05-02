@@ -123,7 +123,7 @@
                 <ul class="treeview-menu">
                     <li><a href="<?php echo base_url()?>myhome/index"><i class="fa fa-book"></i> <span>Home</span></a></li>
                     <li><a href="<?php echo base_url()?>usergoal/index"><i class="fa fa-book"></i> <span>Goals</span></a></li>
-                    <li><a href="<?php echo base_url()?>measurement/index"><i class="fa fa-book"></i> <span>Check In</span></a></li>
+                    <li><a href="<?php echo base_url()?>checkin/index"><i class="fa fa-book"></i> <span>Check In</span></a></li>
               </ul>
             </li>
 
@@ -147,8 +147,8 @@
                 <li><a href="<?php echo base_url()?>exercise/database"><i class="fa fa-database"></i> <span>Exercise Databse</span></a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url()?>bmi/index"><i class="fa  fa-heartbeat"></i> <span>Health</span></a></li>
-            <li><a href="<?php echo base_url()?>requiredcalories/index"><i class="fa fa-bar-chart-o"></i> <span>Report</span></a></li>
+            <li><a href="<?php echo base_url()?>health/index"><i class="fa  fa-heartbeat"></i> <span>Health</span></a></li>
+            <li><a href="<?php echo base_url()?>report/index"><i class="fa fa-bar-chart-o"></i> <span>Report</span></a></li>
           </ul>
         </section>
       </aside>

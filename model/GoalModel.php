@@ -5,7 +5,7 @@
 
 		function saveCusRecords(){
 			$data = get_object_vars($this);
-			print_r($data);
+			//print_r($data);
 			return $this->insert('tbl_cus_records_calories',array_keys($data),array_values($data));
 		}
 
@@ -34,6 +34,14 @@
 			unset($data['burnt']);
 			//print_r($data);
 			return $this->update('tbl_cus_records_calories',$data,array('id' => $this->id));
+		}
+
+		function selectRecords(){
+			//$data = get_object_vars($this);
+			//print_r($data);
+			$sql = "select * from tbl_cus_records_calories where cus_id = $this->cus_id and date > '$this->date' order by date desc";
+			//echo($sql);
+			return $this->select_query($sql);
 		}
 	}
 ?>

@@ -77,18 +77,18 @@
                   <div class="row">
                     <div class="col-md-2">
                       <div><font color="#3c8dbc"><h2><b><?php echo $this->calgoal->calories ?></b></h2></font></div>
-                      <span><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Goal</i></b></span>
+                      <span><b><i>Goal (cal)</i></b></span>
                     </div>
                     <div class="col-md-2">
                       <div><font color="#3c8dbc"><h2><b><?php echo $this->record_data->consumed ?></b></h2></font></div>
-                      <span><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Food</i></b></span>
+                      <span><b><i>Food(cal)</i></b></span>
                     </div>
                     <div class="col-md-2">
                         <div><font color="#3c8dbc"><h2><b>-</b></h2></font></div>
                     </div>
                     <div class="col-md-2">
                         <div><font color="#3c8dbc"><h2><b><?php echo $this->record_data->burnt ?></b></h2></font></div>
-                        <span><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Exercise</i></b></span>
+                        <span><b><i>Exercise(cal)</i></b></span>
                     </div>
                     <div class="col-md-2">
                         <div><font color="#3c8dbc"><h2><b>=</b></h2></font></div>
@@ -96,10 +96,10 @@
                     <div class="col-md-2">
                       <?php if ($this->record_data->total < 0) { ?>
                         <div><font color="#f56954"><h2><b><?php echo $this->record_data->total ?></b></h2></font></div>
-                        <span><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Net</i></b></span>
+                        <span><b><i>Net (cal)</i></b></span>
                       <?php } else{ ?>
                         <div><font color="#3c8dbc"><h2><b><?php echo $this->record_data->total ?></b></h2></font></div>
-                        <span><b><i>&nbsp;&nbsp;&nbsp;&nbsp;Net</i></b></span>
+                        <span><b><i>Net(cal)</i></b></span>
                         <?php } ?>
                     </div>
                   </div>
@@ -124,7 +124,7 @@
                   </div>
                 </div>
                 <div class="col-md-2"></div>
-              </div>
+              </div>              
             </div>
              <br><br>
         </div><!-- /.box-body -->

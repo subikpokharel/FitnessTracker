@@ -22,5 +22,17 @@
 			$sql = "select * from tbl_cus_exercise where cus_id = $this->cus_id and date = '$this->date' and exercise_type = 'strength'";
 			return $this->select_query($sql);
 		}
+
+		function selectCExerciseById(){
+			return $this->select('tbl_cus_exercise',array('*'),array('id' => $this->id));
+		}
+
+		function deleteCExerciseById(){
+			return $this->delete('tbl_cus_exercise',$this->id);
+		}
+
+		function deleteStrengthById(){
+			return $this->delete('tbl_cus_exercise',$this->id);
+		}
 	}
 ?>

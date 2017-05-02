@@ -80,8 +80,8 @@
 			$st = $this->cusfood->selectfoodById();
 			//print_r($st);
 
-			$this->usergoal->consumed = $record_data[0]->consumed - $st[0]->calories;
-			$this->usergoal->total = $record_data[0]->total - $st[0]->calories;
+			$this->usergoal->consumed = (int)$record_data[0]->consumed - (int)$st[0]->calories;
+			$this->usergoal->total = (int)$record_data[0]->total - (int)$st[0]->calories;
 			$st = $this->usergoal->updateconsumed($record_data[0]->id);
 			//$st = $this->cusfood->deletefoodById();
 			if ($st) {

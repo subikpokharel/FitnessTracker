@@ -3,13 +3,13 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Food Database
-            <small>Food Table</small>
+            Exercise Management
+            <small>Strength exercise</small>
           </h1>
           <ol class="breadcrumb">
             <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
             <li><a href="#">Tables</a></li>
-            <li class="active">Food tables</li>
+            <li class="active">Data tables</li>
           </ol>
         </section>
 
@@ -21,45 +21,36 @@
               <div class="box">
                 <div class="box-header">
                 <?php echo SessionHelper::flashMessage();  ?>
-                  <h3 class="box-title">Food Database</h3>
+                  <h3 class="box-title">Strength Exercise Table</h3>
+                  <br>
+                  <a class="btn btn-success" href="<?php echo base_url() ?>strength/create"> New Strength Exercise</a>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>SN</th>
-                        <th>Food Name</th>
-                        <th>Measurement Unit</th>
-                        <th>Calories</th>
-                        <th>Fat</th>
-                        <th>Carbs</th>
-                        <th>Protein</th>
+                        <th>Name</th>
+                        <th>Muscle Group</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php $i = 1;
-                    foreach ($this->foodlist as $fl) {?>
+                    foreach ($this->strengthlist as $cl) {?>
                        <tr>
                         <td><?php echo $i; ?></td>
-                        <td><?php echo $fl->name; ?></td>
-                        <td><?php echo $fl->measurement_unit; ?></td>
-                        <td><?php echo $fl->calories; ?></td>
-                        <td><?php echo $fl->fat; ?></td>
-                        <td><?php echo $fl->carbs; ?></td>
-                        <td><?php echo $fl->protein; ?></td>
-                        <td> <a href="<?php echo base_url() ?>food/add/<?php echo $fl->id?>" class="btn btn-default">Add Food</a></td></td>
+                        <td><?php echo $cl->name; ?></td>
+                        <td><?php echo $cl->musclegroup; ?></td>
+                        <td><a href="<?php echo base_url() ?>strength/edit/<?php echo $cl->id ?>" class="btn btn-success" > Edit </a>   
+                        <a href="<?php echo base_url() ?>strength/delete/<?php echo $cl->id?>" class="btn btn-danger" onclick="return confirm('are you sure to delete?')">Delete</a></td>
                     <?php $i++; } ?>
                     </tbody>
                     <tfoot>
                       <tr>
                         <th>SN</th>
-                        <th>Food Name</th>
-                        <th>Measurement Unit</th>
-                        <th>Calories</th>
-                        <th>Fat</th>
-                        <th>Carbs</th>
-                        <th>Protein</th>
+                        <th>Name</th>
+                        <th>Muscle Group</th>
                         <th>Action</th>
                       </tr>
                     </tfoot>
@@ -73,8 +64,8 @@
  
 
     <!-- DataTables -->
-    <script src="<?php echo base_url()?>admin/public/plugins/datatables/jquery.dataTables.min.js"></script>
-    <script src="<?php echo base_url()?>admin/public/plugins/datatables/dataTables.bootstrap.min.js"></script>
+    <script src="<?php echo base_url()?>public/plugins/datatables/jquery.dataTables.min.js"></script>
+    <script src="<?php echo base_url()?>public/plugins/datatables/dataTables.bootstrap.min.js"></script>
     
     <script>
       $(function () {

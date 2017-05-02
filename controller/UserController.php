@@ -104,6 +104,7 @@ class UserController extends Controller{
 				$this->user->Fname = $Fname;
 				$this->user->Lname = $Lname;
 				$this->user->email = $email;
+				$this->user->profile_picture = 'user.png';
 
 				if (isset($_FILES['profile_picture']['name']) && !empty($_FILES['profile_picture']['name'])) {
 					/*print_r($_FILES);
@@ -113,7 +114,7 @@ class UserController extends Controller{
 						move_uploaded_file($_FILES['profile_picture']['tmp_name'], 'public/images/customer/'.$fn);
 						$this->user->profile_picture = $fn;
 					}else{
-						echo $this->user->profile_picture = 'user.png';
+						 $this->user->profile_picture = 'user.png';
 						//exit;
 					}
 					

@@ -3,13 +3,11 @@
         <!-- Content Header (Page header) -->
         <section class="content-header">
           <h1>
-            Food Database
-            <small>Food Table</small>
+             <?php echo $this->title; ?>
           </h1>
           <ol class="breadcrumb">
-            <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-            <li><a href="#">Tables</a></li>
-            <li class="active">Food tables</li>
+            <li><a href="<?php echo base_url() ?>myhome/index"><i class="fa fa-home"></i> myHome</a></li>
+            <li><a href="<?php echo base_url() ?>myhome/index"><i ""></i> <?php echo $this->title; ?></a></li>
           </ol>
         </section>
 
@@ -21,45 +19,30 @@
               <div class="box">
                 <div class="box-header">
                 <?php echo SessionHelper::flashMessage();  ?>
-                  <h3 class="box-title">Food Database</h3>
+                  <h3 class="box-title">Strength Exercise Database</h3>
                 </div><!-- /.box-header -->
                 <div class="box-body">
                   <table id="example1" class="table table-bordered table-striped">
                     <thead>
                       <tr>
                         <th>SN</th>
-                        <th>Food Name</th>
-                        <th>Measurement Unit</th>
-                        <th>Calories</th>
-                        <th>Fat</th>
-                        <th>Carbs</th>
-                        <th>Protein</th>
+                        <th>Exercise Name</th>
                         <th>Action</th>
                       </tr>
                     </thead>
                     <tbody>
                     <?php $i = 1;
-                    foreach ($this->foodlist as $fl) {?>
+                    foreach ($this->strengthlist as $cl) {?>
                        <tr>
                         <td><?php echo $i; ?></td>
-                        <td><?php echo $fl->name; ?></td>
-                        <td><?php echo $fl->measurement_unit; ?></td>
-                        <td><?php echo $fl->calories; ?></td>
-                        <td><?php echo $fl->fat; ?></td>
-                        <td><?php echo $fl->carbs; ?></td>
-                        <td><?php echo $fl->protein; ?></td>
-                        <td> <a href="<?php echo base_url() ?>food/add/<?php echo $fl->id?>" class="btn btn-default">Add Food</a></td></td>
+                        <td><?php echo $cl->name; ?></td>
+                        <td> <a href="<?php echo base_url() ?>exercise/sadd/<?php echo $cl->id?>" class="btn btn-default">Add Exercise</a></td>
                     <?php $i++; } ?>
                     </tbody>
                     <tfoot>
                       <tr>
                         <th>SN</th>
-                        <th>Food Name</th>
-                        <th>Measurement Unit</th>
-                        <th>Calories</th>
-                        <th>Fat</th>
-                        <th>Carbs</th>
-                        <th>Protein</th>
+                        <th>Exercise Name</th>
                         <th>Action</th>
                       </tr>
                     </tfoot>

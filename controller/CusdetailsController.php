@@ -10,6 +10,7 @@
 			$this->user = $this->loadModel('User');
 			$this->askgoal = $this->loadModel('Askgoal');
 			$this->bmi = $this->loadModel('Bmi',true);
+			$this->check = $this->loadModel('Checkin');
 			$this->requiredcalories = $this->loadModel('Requiredcalories',true);
 		}
 		function index(){
@@ -68,6 +69,10 @@
 
 						$inid = $this->userdetails->saveDetails($this->view->userdata->cus_id);
 						if ($inid) {
+							$this->check->cus_id = $this->view->userdata->cus_id;
+							$this->check->weight = $this->userdetails->weight;
+							$this->check->date = date("Y-m-d");
+							$this->check->insertWeight();
 							$_SESSION['success_message'] = "Information Successfully added";
 
 							$this->redirect('cusdetails/goal');

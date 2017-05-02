@@ -55,8 +55,8 @@
                                       <td colspan="5"><?php echo $cl->name; ?></td>
                                       <td colspan="2"><?php echo $cl->time; ?></td>
                                       <td colspan="2"><?php echo $cl->calories; ?></td>
-                                      <td><a href="<?php echo base_url() ?>food/cedit/<?php echo $cl->id ?>" class="btn btn-success" > Edit </a>   
-                                          <a href="<?php echo base_url() ?>food/delete/<?php echo $cl->id?>" class="btn btn-danger" onclick="return confirm('are you sure to delete?')">Delete</a></td>
+                                      <td>
+                                          <a href="<?php echo base_url() ?>exercise/delete/<?php echo $cl->id?>" class="btn btn-danger" onclick="return confirm('are you sure to delete?')">Delete</a></td>
                                     </tr>
                                   <?php } ?>
                             </tbody>
@@ -98,13 +98,13 @@
                                       <td colspan="1"><?php echo $sl->sets; ?></td>
                                       <td colspan="1"><?php echo $sl->number_per_set; ?></td>
                                       <td colspan="2"><?php echo $sl->weight; ?></td>
-                                      <td><a href="<?php echo base_url() ?>food/sedit/<?php echo $cl->id ?>" class="btn btn-success" > Edit </a>   
-                                          <a href="<?php echo base_url() ?>food/delete/<?php echo $cl->id?>" class="btn btn-danger" onclick="return confirm('are you sure to delete?')">Delete</a></td>
+                                      <td>
+                                          <a href="<?php echo base_url() ?>exercise/sdelete/<?php echo $sl->id?>" class="btn btn-danger" onclick="return confirm('are you sure to delete?')">Delete</a></td>
                                     </tr>
                                   <?php } ?>
                             </tbody>
                             </table>
-                            <button class="btn btn-default "><a href="<?php echo base_url()?>exercise/database">Add Strength Exercise</a></button>
+                            <button class="btn btn-default "><a href="<?php echo base_url()?>exercise/sdatabase">Add Strength Exercise</a></button>
                           </div><!-- /.box-body -->
                       </div>
                       <div class="col-md-2">
