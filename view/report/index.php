@@ -20,10 +20,10 @@
                     <div class="row">
                       <div class="col-md-4"></div>
                       <div class="col-md-2">
-                        <h3 class="box-title"><br><b><i>Your Diary from:</i></b></h3>
+                        <h1 class="box-title"><br><b><i>Your Diary from:</i></b></h1>
                       </div>
                       <div class="col-md-2">
-                       
+                       <br>
                        <button class="btn bg-primary btn-flat margin"> <?php echo $this->pastdate ?></button>
                       </div>
                       <div class="col-md-4"></div>
@@ -57,6 +57,30 @@
                             </tbody>
                             </table>
                           </div><!-- /.box-body -->
+                      </div>
+                      <div class="col-md-2">
+                        
+                      </div>
+                   </div>
+
+
+
+
+                    <div class="row">
+                    <br><br><br><br>
+                      <div class="col-md-2">
+                        
+                      </div>
+                      <div class="col-md-8">
+                          
+                      <?php if ($this->weight > 0) { ?>
+                            <span><h3><b><i>Total Weight loss: <?php echo $this->weight ?> lbs</i></b></h3></span>
+                            <div><h2><b></b></h2></div>
+                         <?php } else { ?>
+                            <span><h3><b><i>Total Weight gained: <?php echo -$this->weight ?> lbs</i></b></h3></span>
+                            <div><h2><b></b></h2></div>
+                         <?php } ?>
+                              
                       </div>
                       <div class="col-md-2">
                         

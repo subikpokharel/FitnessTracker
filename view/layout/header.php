@@ -147,7 +147,7 @@
                 <li><a href="<?php echo base_url()?>exercise/database"><i class="fa fa-database"></i> <span>Exercise Databse</span></a></li>
               </ul>
             </li>
-            <li><a href="<?php echo base_url()?>health/index"><i class="fa  fa-heartbeat"></i> <span>Health</span></a></li>
+            <!-- <li><a href="<?php echo base_url()?>health/index"><i class="fa  fa-heartbeat"></i> <span>Health</span></a></li> -->
             <li><a href="<?php echo base_url()?>report/index"><i class="fa fa-bar-chart-o"></i> <span>Report</span></a></li>
           </ul>
         </section>
