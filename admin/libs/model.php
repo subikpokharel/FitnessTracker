@@ -7,10 +7,6 @@ class Model {
 		/************************************************************
 				Database Configuration
   			*************************************************************/
- /* $dbUser = "spokharel";
-  $dbPassword = "w1147112";
-  $database = "spokharel";
-  $host     = "mysqldev.aero.und.edu";*/
 
  $dbUser = "root";
   $dbPassword= "";
